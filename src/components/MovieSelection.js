@@ -1,12 +1,20 @@
-const MovieSelection = () => {
+const MovieSelection = ({ listItems }) => {
+    console.log(listItems);
+
+
+
     return (
         <div className="movie-selection">
             <label>Pick a movie:</label>
             <select id="movie">
-                <option value="10">Avengers: Endgame ($10)</option>
-                <option value="12">Joker ($12)</option>
-                <option value="8">Toy Story 4 ($8)</option>
-                <option value="9">The Lion King ($9)</option>
+                {listItems.map((theater, index) => {
+                    return (
+                        <option key={index} value={index}>{theater.movie}</option>
+                    )
+                })
+                }
+
+
             </select>
         </div>
     );
