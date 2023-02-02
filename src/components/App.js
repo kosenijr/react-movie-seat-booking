@@ -19,7 +19,7 @@ const App = () => {
         <>
             <MovieSelection listItems={theaters} />
             <SeatLegend />
-            <Theater />
+            <Theater listItems={theaters}/>
             <TicketPricing />
         </>
     );

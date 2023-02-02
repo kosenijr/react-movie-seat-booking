@@ -1,5 +1,5 @@
 const MovieSelection = ({ listItems }) => {
-    console.log(listItems);
+    // console.log(listItems);
 
 
 
