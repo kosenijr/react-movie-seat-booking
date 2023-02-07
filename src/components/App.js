@@ -22,11 +22,7 @@ const App = () => {
         <>
             <MovieSelection listItems={theaters} setTheater={setTheater} />
             <SeatLegend />
-<<<<<<< HEAD
             <Theater theater={theater} />
-=======
-            <Theater listItems={theaters}/>
->>>>>>> 5f2fa9b0bf7225c327f3c008456bd5c0a0bc43d9
             <TicketPricing />
         </>
     );
