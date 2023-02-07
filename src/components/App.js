@@ -6,20 +6,21 @@ import TicketPricing from './TicketPricing';
 
 const App = () => {
     const [theaters, setTheaters] = useState([]);
-    const [theater, setTheater] = useState({});
+    const [theater, setTheater] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/theater.json')
+        fetch('/api/theater.json') // don't have to put localhost:3000, but leave forward slash
             .then((res) => res.json())
             .then((res) => setTheaters(res.data.theaters));
     }, []);
-    // console.log(theaters);
+
+    console.log(theaters);
 
     return (
         <>
-            <MovieSelection listItems={theaters} />
+            <MovieSelection listItems={theaters} setTheater={setTheater}/>
             <SeatLegend />
-            <Theater listItems={theaters}/>
+            <Theater />
             <TicketPricing />
         </>
     );
