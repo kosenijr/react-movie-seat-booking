@@ -5,7 +5,7 @@ const MovieSelection = ({ listItems, setTheater }) => {
         // console.log('selectTheater is working'); // select another movie to see it work.
         // console.log(e.target, e.target.value);
         // console.log(listItems[0]);
-        setTheater(listItems[e.target.value]);
+        setTheater({...listItems[e.target.value]}); //spread operator fixture; show P.
     }
 
     return (
