@@ -5,24 +5,27 @@ import Theater from './Theater';
 import TicketPricing from './TicketPricing';
 
 const App = () => {
+    const log = console.log;
     const [theaters, setTheaters] = useState([]);
     const [theater, setTheater] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/theater.json')
+        fetch('/api/theater.json')
             .then((res) => res.json())
             .then((res) => setTheaters(res.data.theaters));
+
     }, []);
-    // console.log(theaters);
+
+    log(theater);
 
     return (
         <>
-            <MovieSelection listItems={theaters} />
+            <MovieSelection listItems={theaters} setTheater={setTheater} />
             <SeatLegend />
-            <Theater />
+            <Theater theater={theater} />
             <TicketPricing />
         </>
     );
-};
+}
 
 export default App;
