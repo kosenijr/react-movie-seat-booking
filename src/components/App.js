@@ -17,13 +17,13 @@ const App = () => {
     }, []);
 
     // console.log(theaters);
-    log(theater);
+    // log(theater);
 
     return (
         <>
-            <MovieSelection listItems={theaters} setTheater={setTheater}/>
+            <MovieSelection listItems={theaters} setTheater={setTheater} />
             <SeatLegend />
-            <Theater theater={theater}/>
+            <Theater listItems={theaters} theater={theater} />
             <TicketPricing />
         </>
     );
