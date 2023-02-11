@@ -13,16 +13,15 @@ const App = () => {
         fetch('/api/theater.json')
             .then((res) => res.json())
             .then((res) => setTheaters(res.data.theaters));
-
     }, []);
-
-    log(theater);
+    // log(theaters[0]);
+    // log(theater);
 
     return (
         <>
             <MovieSelection listItems={theaters} setTheater={setTheater} />
             <SeatLegend />
-            <Theater theater={theater} />
+            <Theater listItems={theaters} theater={theater} />
             <TicketPricing />
         </>
     );

@@ -1,25 +1,40 @@
-import Row from './Row'
-import Seat from './Seat'
+import Row from './Row';
+import Seat from './Seat';
 
-const log = console.log;
+const Theater = ({ listItems, theater }) => {
+    const log = console.log;
+    // listItems finding rows
+    listItems.map((theater, index) => {
+        theater.seats.map((row, rowIndex) => {
+            row.map((columns, columnsIndex) => {
+                log(row, rowIndex, columns, columnsIndex)
+            })
+        })
+    })
 
 
-const Theater = () => {
+
     return (
         <div className="theater">
             <div className="screen"></div>
-            <Row>
-                <Seat />
-            </Row>
 
-
-        </div>
-    );
-}
-
-/* conditionals:
-if booked === 0 seat classname; if booked === 1, seating is occupied.
-if hoovered, then seat is selected. */
+        </div >
+    )
+};
 
 
 export default Theater;
+
+
+
+/*
+
+NOTES
+
+- issue with rendering as soon as page loads.
+
+- issue logging 'The Lion King' as the first movie before selecting another movie.
+
+ 
+
+*/
