@@ -1,38 +1,29 @@
-import React, { useState } from 'react'
 import Row from './Row';
 import Seat from './Seat';
 
 const Theater = ({ listItems, theater }) => {
-    const [rows, setRows] = useState([]);
-    const [seats, setSeats] = useState([]);
-    const log = console.log;
-
-    const handleRows = () => {
-
-    }
-
-    const handleSeats = () => {
-
-    }
-    listItems.map((area, areaIndex) => {
-        if (listItems[areaIndex].movie === theater.movie) {
-            area.seats.map((rows, rowsIndex) => {
-                log(rows)
-                rows.map((seats, seatsIndex) => {
-                    log(seats)
-                })
-            })
-        }
-    })
+    const log = console.log
 
     return (
         <div className="theater">
             <div className="screen"></div>
 
-            <Row>
-                <Seat></Seat>
-            </Row>
-
+            {listItems.map((area, areaIndex) => {
+                if (listItems[areaIndex].movie === theater.movie) {
+                    return area.seats.map((rows, rowsIndex) => {
+                        log(rows, rowsIndex);
+                        return (
+                            <div key={rowsIndex} value={rows} className='row'>
+                                {rows.map((seats, seatsIndex) => {
+                                    // log(seats, seats.id)
+                                    return <div key={seatsIndex} value={seats} className='seat'></div>
+                                })}
+                            </div>
+                        )
+                    })
+                }
+                return null
+            })}
         </div >
     )
 };
