@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import MovieSelection from './MovieSelection';
 import SeatLegend from './SeatLegend';
 import Theater from './Theater';
@@ -9,13 +9,21 @@ const App = () => {
     const [theaters, setTheaters] = useState([]);
     const [theater, setTheater] = useState({});
 
+
+
     useEffect(() => {
         fetch('/api/theater.json')
             .then((res) => res.json())
             .then((res) => setTheaters(res.data.theaters));
     }, []);
-    // log(theaters[0]);
-    // log(theater);
+
+    useEffect(() => {
+
+        fetch('/api/theater.json')
+            .then((res) => res.json())
+            .then((res) => setTheater(...res.data.theaters))
+    }, []);
+
 
     return (
         <>

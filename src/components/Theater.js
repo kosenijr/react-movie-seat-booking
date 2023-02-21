@@ -1,22 +1,37 @@
+import React, { useState } from 'react'
 import Row from './Row';
 import Seat from './Seat';
 
 const Theater = ({ listItems, theater }) => {
+    const [rows, setRows] = useState([]);
+    const [seats, setSeats] = useState([]);
     const log = console.log;
-    // listItems finding rows
-    listItems.map((theater, index) => {
-        theater.seats.map((row, rowIndex) => {
-            row.map((columns, columnsIndex) => {
-                log(row, rowIndex, columns, columnsIndex)
+
+    const handleRows = () => {
+
+    }
+
+    const handleSeats = () => {
+
+    }
+    listItems.map((area, areaIndex) => {
+        if (listItems[areaIndex].movie === theater.movie) {
+            area.seats.map((rows, rowsIndex) => {
+                log(rows)
+                rows.map((seats, seatsIndex) => {
+                    log(seats)
+                })
             })
-        })
+        }
     })
-
-
 
     return (
         <div className="theater">
             <div className="screen"></div>
+
+            <Row>
+                <Seat></Seat>
+            </Row>
 
         </div >
     )
@@ -24,6 +39,7 @@ const Theater = ({ listItems, theater }) => {
 
 
 export default Theater;
+
 
 
 

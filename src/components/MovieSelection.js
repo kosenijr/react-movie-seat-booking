@@ -1,4 +1,4 @@
-const MovieSelection = ({ listItems, setTheater }) => {
+const MovieSelection = ({ handleData, listItems, setTheater }) => {
     const selectTheater = (e) => {
         // console.log(e.target.value, e.target);
         setTheater({ ...listItems[e.target.value] });
@@ -10,7 +10,7 @@ const MovieSelection = ({ listItems, setTheater }) => {
             <select id="movie" onChange={selectTheater}>
                 {listItems.map((theater, index) => {
                     return (
-                        <option key={index} value={index}>{theater.movie}</option>
+                        <option key={index} value={index}>{theater?.movie}</option>
                     )
                 })
                 }
