@@ -9,12 +9,20 @@ const log = console.log;
 const App = () => {
     const [theaters, setTheaters] = useState([]);
     const [theater, setTheater] = useState({});
-
+    // for theaters
     useEffect(() => {
         fetch('/api/theater.json') // don't have to put localhost:3000, but leave forward slash
             .then((res) => res.json())
             .then((res) => setTheaters(res.data.theaters));
     }, []);
+    // for theater
+    useEffect(() => {
+        fetch('/api/theater.json')
+        .then((res) => res.json())
+        .then((res) => setTheater(res.data.theaters.map(elem => elem.movie)))
+    }, []);
+    console.log(theaters);
+    console.log(theater);
 
     // console.log(theaters);
     // log(theater);
