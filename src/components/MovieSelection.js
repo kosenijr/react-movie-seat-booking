@@ -1,12 +1,17 @@
-const MovieSelection = ({ listItems, setTheater }) => {
-    // console.log(listItems);
+import React, {useState} from 'react'
+
+const log = console.log;
+
+const MovieSelection = ({ listItems, setTheater}) => {
 
     const selectTheater = (e) => { // pass an event param
         // console.log('selectTheater is working'); // select another movie to see it work.
         // console.log(e.target, e.target.value);
         // console.log(listItems[0]);
+        // setTheater({...listItems[e.target.value]}); //spread operator fixture; show P.
         setTheater({...listItems[e.target.value]}); //spread operator fixture; show P.
     }
+
 
     return (
         <div className="movie-selection">

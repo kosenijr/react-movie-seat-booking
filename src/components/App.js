@@ -18,15 +18,16 @@ const App = () => {
     // for theater
     useEffect(() => {
         fetch('/api/theater.json')
-        .then((res) => res.json())
-        .then((res) => setTheater(res.data.theaters.map(elem => elem.movie)))
+            .then((res) => res.json())
+            .then((res) => setTheater(res.data.theaters[0]));
     }, []);
-    console.log(theaters);
-    console.log(theater);
+    // console.log(theaters);
+    // console.log(theater);
 
     // console.log(theaters);
     // log(theater);
 
+    // log(theater);
     return (
         <>
             <MovieSelection listItems={theaters} setTheater={setTheater} />

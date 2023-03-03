@@ -3,29 +3,33 @@ import Seat from './Seat';
 
 const Theater = ({ listItems, theater }) => {
     const log = console.log;
-    log(listItems);
+    // log(listItems);
+    // log(theater);
+
+    listItems.map((area, areaIndex) => {
+        // log(area.movie === theater[areaIndex], area.movie);
+    })
+
+
+
+
 
     // log(theater, ...theaters);
 
     // external for-loop that encompasses return statement
-    // if (listItems[i].movie === theater.movie) {
-    for (let i = 0; i < listItems.length; i++) {
-        return (
-            <div className="theater">
-                <div className="screen"> </div>
-                {listItems[i].seats.map((row, rowIndex) => {
-                    row.map((seat, seatIndex) => {
-                        <Row index={rowIndex} value={row}>
-                            {/* {log()} */}
-                            <Seat index={seatIndex} value={seat}>
-                                {log()}
-                            </Seat>
-                        </Row>;
-                    });
-                })}
-            </div>
-        );
-    }
+    // listItems.map((area, areaIndex) => {
+    //     log(Array.isArray(theater), Array.isArray(listItems))
+    //     log(listItems[areaIndex], theater[areaIndex], listItems[areaIndex] === theater[areaIndex])
+    //     // navigate to seats
+    //     return area.seats.map((row, rowIndex) => {
+    //         // log(row, rowIndex);
+    //         <div className="row" key={rowIndex} value={row}></div>
+    //             {row.map((seat, seatIndex) => {
+    //                 // log(seat);
+    //                 <Seat key={seatIndex} value={seat} />;
+    //             })}
+    //     });
+    // });
 };
 
 export default Theater;
