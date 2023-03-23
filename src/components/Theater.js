@@ -1,35 +1,31 @@
 import Row from './Row';
 import Seat from './Seat';
 
+const log = console.log;
+
 const Theater = ({ listItems, theater }) => {
-    const log = console.log;
-    // log(listItems);
-    // log(theater);
+    // log(listItems, theater);
 
+    // start nested map: 1st nest
     listItems.map((area, areaIndex) => {
-        // log(area.movie === theater[areaIndex], area.movie);
-    })
+        // check condition
+        // log(listItems[areaIndex].movie === theater.movie, listItems[areaIndex].movie, theater.movie);
 
+        if (listItems[areaIndex].movie === theater.movie) {
+            // 2nd nest: rows
+            return area.seats.map((rows, rowsIndex) => {
+                // log(row, rowIndex);
+                <div className="row" key={rowsIndex} value={rows}></div>;
+                // 3rd nest: seats
 
-
-
-
-    // log(theater, ...theaters);
-
-    // external for-loop that encompasses return statement
-    // listItems.map((area, areaIndex) => {
-    //     log(Array.isArray(theater), Array.isArray(listItems))
-    //     log(listItems[areaIndex], theater[areaIndex], listItems[areaIndex] === theater[areaIndex])
-    //     // navigate to seats
-    //     return area.seats.map((row, rowIndex) => {
-    //         // log(row, rowIndex);
-    //         <div className="row" key={rowIndex} value={row}></div>
-    //             {row.map((seat, seatIndex) => {
-    //                 // log(seat);
-    //                 <Seat key={seatIndex} value={seat} />;
-    //             })}
-    //     });
-    // });
+                rows.map((seats, seatsIndex) => {
+                    // log(seat, seatIndex);
+                    // set up rows and seats.
+                    <Seat key={seatsIndex} value={seats} />;
+                });
+            });
+        }
+    });
 };
 
 export default Theater;

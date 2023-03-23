@@ -16,11 +16,26 @@ const App = () => {
             .then((res) => setTheaters(res.data.theaters));
     }, []);
     // for theater
+    // useEffect(() => {
+    //     fetch('/api/theater.json')
+    //         .then((res) => res.json())
+    //         // .then((res) => setTheater(res.data.theaters[0]));
+    //         .then((res) =>
+    //             setTheater(
+    //                 res.data.theaters.map((x, xIndex) => {
+    //                     log();
+    //                 })
+    //             )
+    //         );
+    // }, []);
+
+    // log(theaters.length);
     useEffect(() => {
-        fetch('/api/theater.json')
-            .then((res) => res.json())
-            .then((res) => setTheater(res.data.theaters[0]));
-    }, []);
+        if (theaters.length > 0) {
+            setTheater(theaters[0])
+        } 
+    }, [theaters])
+
     // console.log(theaters);
     // console.log(theater);
 
